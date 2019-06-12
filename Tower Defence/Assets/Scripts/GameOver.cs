@@ -27,9 +27,6 @@ public class GameOver : MonoBehaviour
 
         RedPlayerStats.Rounds = 0;
        
-        Enemy.starthealth = 100;
-       
-        Enemy.speed = 20f;
         
 
     }

@@ -5,8 +5,8 @@ public class Enemy : MonoBehaviour {
 
 	public static float speed = 20f;
 
-    public static int starthealth = 100;
-    public float health;
+    public int starthealth = 100;
+    private float health;
     public int value = 10;
     private Transform target;
 	private int wavepointIndex = 0;

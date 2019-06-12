@@ -56,12 +56,8 @@ public class GameControl : MonoBehaviour {
 
         Wave wave = waves[waveIndex];
 
-        Enemy.starthealth += 3;
 
-        Enemy.speed += 0.2f;
-
-        Debug.Log(Enemy.speed);
-        Debug.Log(Enemy.starthealth);
+       
 
         for (int i = 0; i < wave.count; i++)
         {
