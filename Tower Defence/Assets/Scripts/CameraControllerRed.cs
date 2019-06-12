@@ -8,6 +8,7 @@ public class CameraControllerRed : MonoBehaviour
     private bool activeMove = true;
 
     public float panSpeed = 40f;
+    public float panBorderThickness = 10f;
 
     public float scrollSpeed = 5f;
     public float minZoom = 80f;
@@ -38,22 +39,22 @@ public class CameraControllerRed : MonoBehaviour
             return;
 
         //move up
-        if (Input.GetKey("w"))
+        if (Input.GetKey("w") || Input.mousePosition.y >= Screen.height - panBorderThickness)
         {
             transform.Translate(Vector3.back * panSpeed * Time.deltaTime, Space.World);
         }
         //move down
-        if (Input.GetKey("s"))
+        if (Input.GetKey("s") || Input.mousePosition.y <= panBorderThickness)
         {
             transform.Translate(Vector3.forward * panSpeed * Time.deltaTime, Space.World);
         }
         //move right
-        if (Input.GetKey("d"))
+        if (Input.GetKey("d") || Input.mousePosition.x >= Screen.width - panBorderThickness)
         {
             transform.Translate(Vector3.left * panSpeed * Time.deltaTime, Space.World);
         }
         //move left
-        if (Input.GetKey("a"))
+        if (Input.GetKey("a") || Input.mousePosition.x <= panBorderThickness)
         {
             transform.Translate(Vector3.right * panSpeed * Time.deltaTime, Space.World);
         }

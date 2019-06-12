@@ -15,6 +15,9 @@ public class GameControl : MonoBehaviour {
 
     public Text redwaveCountdownText;
 
+    public GameManager gameManager;
+    
+
     static string leveltwo;
     static int waveIndex = 0;
 
@@ -24,6 +27,13 @@ public class GameControl : MonoBehaviour {
         {
             return;
         }
+        if (waveIndex == waves.Length)
+        {
+            gameManager.Win();
+            this.enabled = false;
+            waveIndex = 0;
+        }
+
         if (countDown <= 0f)
         {
             StartCoroutine(SpawnWave());

@@ -14,6 +14,8 @@ public class Enemy : MonoBehaviour {
     [Header("Unity Things")]
     public Image HealthBar;
 
+    private bool isDead = false;
+
     void Start()
     {
 		target = Waypoints_Red.points[0];
@@ -26,7 +28,7 @@ public class Enemy : MonoBehaviour {
         
         HealthBar.fillAmount = health / starthealth;
         
-        if (health <= 0)
+        if (health <= 0 && !isDead)
         {
             Die();
         }
@@ -34,8 +36,12 @@ public class Enemy : MonoBehaviour {
  
 	void Die()
     {
+        isDead = true;
+
         RedPlayerStats.Money += value;
+
         Destroy(gameObject);
+
         GameControl.EnemiesAlive--;
     }
 
